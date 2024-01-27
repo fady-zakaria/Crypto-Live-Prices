@@ -18,7 +18,6 @@ socketHandler.on("connection", (socket) => {
         console.log('client disconnected');
     });
     console.log('client connected');
-    // socket.emit('crypto', 'Hello Crypto Client');
 })
 
 const getPrices = () => {
