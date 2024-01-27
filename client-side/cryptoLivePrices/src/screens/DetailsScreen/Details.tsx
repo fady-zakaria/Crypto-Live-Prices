@@ -13,14 +13,13 @@ import {approximatePrices} from '../../utils';
 import RenderHtml from 'react-native-render-html';
 import {CryptoMarketDataInit, CryptoProfileInit} from '../../models/crypto';
 import styles from './Details.style';
+import {API_URL_IOS, API_URL_ANDROID} from '@env';
 
-const API_URL =
-  Platform.OS === 'ios' ? process.env.API_URL_IOS : process.env.API_URL_ANDROID;
+const API_URL = Platform.OS === 'ios' ? API_URL_IOS : API_URL_ANDROID;
 
 const Details = ({route}: {route: any}) => {
   const {width} = useWindowDimensions();
   const id = route.params?.id;
-  console.log('id: ', id);
   const [cryptoProfile, setCryptoProfile] = useState(CryptoProfileInit);
   const [cryptoMarketData, setCryptoMarketData] =
     useState(CryptoMarketDataInit);

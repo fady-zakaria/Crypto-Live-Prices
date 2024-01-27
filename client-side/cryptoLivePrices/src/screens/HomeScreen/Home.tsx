@@ -6,13 +6,14 @@ import {socket} from '../../../App';
 import {approximatePrices} from '../../utils';
 import {colors} from '../../utils/Colors';
 import styles from './Home.style';
+import {socketVar} from '@env';
 
 const Home = ({navigation}: {navigation: any}) => {
   const [cryptoList, setCryptoList] = useState();
   const [cryptoDataLoaded, setCryptoDataLoaded] = useState(false);
 
   useEffect(() => {
-    socket.on(process.env.socketVar as string, data => {
+    socket.on(socketVar, data => {
       setCryptoList(data);
       setCryptoDataLoaded(true);
     });
